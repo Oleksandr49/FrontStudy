@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="80dp"
+        android:contentDescription="@string/logo"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/UserName_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/logo_img"
+        tools:srcCompat="@mipmap/logo_img" />
+
+    <ImageButton
+        android:id="@+id/Facebook_btn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/go_to_facebook"
+        android:src="@mipmap/facebook_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Twitter_btn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Twitter_btn"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/go_to_twitter"
+        android:src="@mipmap/twitter_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Facebook_btn" />
+
+    <Button
+        android:id="@+id/SignIn_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
+        android:background="@mipmap/btn_background_wide"
+        android:text="@string/sign_in"
+        android:textColor="#F6F5F5"
+        app:layout_constraintBottom_toTopOf="@+id/Facebook_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/UserName_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="15dp"
+        android:background="@mipmap/input_frame"
+        android:hint="@string/username"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:padding="1dp"
+        android:paddingStart="1dp"
+        android:paddingLeft="1dp"
+        android:paddingTop="1dp"
+        android:paddingEnd="1dp"
+        android:paddingRight="1dp"
+        android:paddingBottom="1dp"
+        android:textAlignment="center"
+        android:textColorHint="#C7C7C7"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/Password_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/Password_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@mipmap/input_frame"
+        android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColorHint="#C7C7C7"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/SignIn_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/recommendation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/sign_in_with_facebook_or_twitter"
+        app:layout_constraintBottom_toTopOf="@+id/Facebook_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="front.frontstudy.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/go_to_Sing_In"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/go_to_signUp"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/go_to_menu_categories"
+            app:destination="@id/menuCategoriesFragment" />
+        <action
+            android:id="@+id/go_to_all_products"
+            app:destination="@id/allProductsMenuFragment" />
+        <action
+            android:id="@+id/go_to_favorites"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/go_to_settings"
+            app:destination="@id/userSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="front.frontstudy.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/back_to_home"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="front.frontstudy.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/go_to_signIn"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuCategoriesFragment"
+        android:name="front.frontstudy.MenuCategoriesFragment"
+        android:label="MenuCategoriesFragment" >
+        <action
+            android:id="@+id/action_menuCategoriesFragment_to_allProductsMenuFragment"
+            app:destination="@id/allProductsMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="front.frontstudy.FavoritesFragment"
+        android:label="FavoritesFragment" />
+    <fragment
+        android:id="@+id/userSettingsFragment"
+        android:name="front.frontstudy.UserSettingsFragment"
+        android:label="UserSettingsFragment" />
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="front.frontstudy.ItemDetailsFragment"
+        android:label="ItemDetailsFragment" >
+        <argument
+            android:name="Product_name"
+            app:argType="string"
+            android:defaultValue="Product name" />
+        <argument
+            android:name="Product_price"
+            app:argType="string"
+            android:defaultValue="$0.00" />
+        <argument
+            android:name="Product_img_id"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/allProductsMenuFragment"
+        android:name="front.frontstudy.AllProductsMenuFragment"
+        android:label="AllProductsMenuFragment" >
+        <action
+            android:id="@+id/go_to_item_details"
+            app:destination="@id/itemDetailsFragment" />
+    </fragment>
+</navigation>
