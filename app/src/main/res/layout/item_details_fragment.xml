@@ -25,8 +25,8 @@
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/btn_background_wide"
+        android:layout_height="50dp"
+        android:background="@drawable/button"
         android:text="@string/add_to_cart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

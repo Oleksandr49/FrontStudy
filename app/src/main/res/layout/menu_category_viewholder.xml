@@ -8,10 +8,13 @@
 
     <ImageView
         android:id="@+id/menu_position_background"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/background"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="colorControlActivated">#0D9F67</item>
         <item name="colorControlNormal">#0D9F67</item>
-        <item name="colorControlHighlight">#80000000</item>
+        <item name="colorControlHighlight">#80686868</item>
         <item name="colorSwitchThumbNormal">#FFFFFF</item>
     </style>
 </resources>

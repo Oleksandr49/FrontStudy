@@ -91,11 +91,11 @@
     <Button
         android:id="@+id/SignUp"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/btn_background_wide"
+        android:layout_height="50dp"
+        android:background="@drawable/button"
         android:text="@string/sign_up"
         android:textColor="#FFFF"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -125,8 +125,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/foto_placeholder"
-        tools:srcCompat="@mipmap/foto_placeholder" />
+        app:srcCompat="@drawable/foto_placeholder"
+        tools:srcCompat="@drawable/foto_placeholder" />
 
     <TextView
         android:id="@+id/Terms"

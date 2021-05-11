@@ -24,19 +24,19 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
 
 
     val itemList = ArrayList<Product>()
-    Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.mipmap.muffin_img).also { itemList.add(it) }
-    Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.mipmap.bagel_img).also { itemList.add(it) }
-    Product("Pancakes", arrayOf("Breakfast"),9.99, R.mipmap.pancakes_img).also { itemList.add(it) }
-    Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.mipmap.latte_img).also { itemList.add(it) }
-    Product("Breakfast", arrayOf("Breakfast"),14.99, R.mipmap.breakfast_img).also { itemList.add(it) }
-    Product("Pancakes", arrayOf("Breakfast"),9.99, R.mipmap.pancakes_img).also { itemList.add(it) }
+    Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
+    Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
+    Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+    Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
+    Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
+    Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
 
     AllProductsMenuFragmentBinding.inflate(inflater, container, false).also {
         it.shopToolbar.inflateMenu(R.menu.shop_menu)
         it.shopToolbar.title = "All Products"
         it.shopToolbar.setOnMenuItemClickListener { menuItem ->
             when(menuItem.itemId){
-                R.id.cart -> {Toast.makeText(activity, "Gone to Cart", Toast.LENGTH_SHORT).also { toast -> toast.show() }
+                R.id.cart -> {findNavController().navigate(AllProductsMenuFragmentDirections.goToCartFrag())
                     true}
                 else -> { false }
             }
@@ -44,7 +44,7 @@ override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, saved
         it.shopToolbar.setNavigationOnClickListener{findNavController().popBackStack()}
         it.allProductsRecView.adapter = AllProductsMenuAdapter().also {
                 adapter -> adapter.products = itemList
-            adapter.navAction = object : AdapterCallback{
+            adapter.navAction = object : AllProductsAdapterCallback{
                 override fun action(arg: NavDirections) {
                     findNavController().navigate(arg)
                 }
@@ -64,7 +64,7 @@ override fun onDestroy() {
 class AllProductsMenuAdapter: RecyclerView.Adapter<AllProductsMenuViewHolder>() {
 
     var products = ArrayList<Product>()
-    var navAction: AdapterCallback? = null
+    var navAction: AllProductsAdapterCallback? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllProductsMenuViewHolder {
         LayoutInflater.from(parent.context).also {
@@ -104,7 +104,7 @@ class AllProductsMenuViewHolder(item: View): RecyclerView.ViewHolder(item) {
     var img: ImageView = item.findViewById(R.id.product_img)
 }
 
-interface AdapterCallback{
+interface AllProductsAdapterCallback{
 
     fun action(arg: NavDirections)
 }

@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="front.frontstudy.HomeFragment"
-        android:label="HomeFragment">
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/go_to_Sing_In"
             app:destination="@id/signInFragment" />
@@ -27,11 +28,15 @@
         <action
             android:id="@+id/go_to_settings"
             app:destination="@id/userSettingsFragment" />
+        <action
+            android:id="@+id/go_to_cart"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="front.frontstudy.SignInFragment"
-        android:label="SignInFragment" >
+        android:label="SignInFragment"
+        tools:layout="@layout/sign_in_fragment">
         <action
             android:id="@+id/back_to_home"
             app:destination="@id/homeFragment" />
@@ -39,7 +44,8 @@
     <fragment
         android:id="@+id/signUpFragment"
         android:name="front.frontstudy.SignUpFragment"
-        android:label="SignUpFragment" >
+        android:label="SignUpFragment"
+        tools:layout="@layout/sign_up_fragment">
         <action
             android:id="@+id/go_to_signIn"
             app:destination="@id/signInFragment" />
@@ -47,7 +53,8 @@
     <fragment
         android:id="@+id/menuCategoriesFragment"
         android:name="front.frontstudy.MenuCategoriesFragment"
-        android:label="MenuCategoriesFragment" >
+        android:label="MenuCategoriesFragment"
+        tools:layout="@layout/menu_categories_fragment">
         <action
             android:id="@+id/action_menuCategoriesFragment_to_allProductsMenuFragment"
             app:destination="@id/allProductsMenuFragment" />
@@ -55,15 +62,29 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="front.frontstudy.FavoritesFragment"
-        android:label="FavoritesFragment" />
+        android:label="FavoritesFragment"
+        tools:layout="@layout/favorites_fragment">
+        <action
+            android:id="@+id/go_to_detailsFrag"
+            app:destination="@id/itemDetailsFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userSettingsFragment"
         android:name="front.frontstudy.UserSettingsFragment"
-        android:label="UserSettingsFragment" />
+        android:label="UserSettingsFragment"
+        tools:layout="@layout/user_settings_fragment">
+        <action
+            android:id="@+id/action_userSettingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemDetailsFragment"
         android:name="front.frontstudy.ItemDetailsFragment"
-        android:label="ItemDetailsFragment" >
+        android:label="ItemDetailsFragment"
+        tools:layout="@layout/item_details_fragment">
         <argument
             android:name="Product_name"
             app:argType="string"
@@ -80,9 +101,25 @@
     <fragment
         android:id="@+id/allProductsMenuFragment"
         android:name="front.frontstudy.AllProductsMenuFragment"
-        android:label="AllProductsMenuFragment" >
+        android:label="AllProductsMenuFragment"
+        tools:layout="@layout/all_products_menu_fragment">
         <action
             android:id="@+id/go_to_item_details"
             app:destination="@id/itemDetailsFragment" />
+        <action
+            android:id="@+id/go_to_cartFrag"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_allProductsMenuFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="front.frontstudy.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/cart_fragment">
+        <action
+            android:id="@+id/action_cartFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

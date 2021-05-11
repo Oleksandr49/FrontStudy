@@ -16,8 +16,8 @@ class UserSettingsFragment: Fragment() {
         UserSettingsFragmentBinding.inflate(inflater, container, false).also {
             it.settingsToolbar.title = "Settings"
             it.settingsToolbar.setNavigationOnClickListener{findNavController().popBackStack()}
-            it.userNameString.text = getString(R.string.BatName)
             it.userEmailString.text = getString(R.string.BatMail)
+            it.userNameString.text = getString(R.string.BatName)
             it.userLocationString.text = getString(R.string.BatLocation)
             return it.root }
     }

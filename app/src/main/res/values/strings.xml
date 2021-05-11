@@ -42,4 +42,5 @@
     <string name="base_description">Here you can put description of your wonderful, tasty and healthy product made by craftsman hands</string>
     <string name="cart">Cart</string>
     <string name="add_to_favorites">add_to_favorites</string>
+    <string name="proceed_to_payment">Proceed to payment</string>
 </resources>

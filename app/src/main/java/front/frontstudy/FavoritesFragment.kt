@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,18 +22,18 @@ class FavoritesFragment:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val itemList = ArrayList<Product>()
-        Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.mipmap.muffin_img).also { itemList.add(it) }
-        Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.mipmap.bagel_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.mipmap.pancakes_img).also { itemList.add(it) }
-        Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.mipmap.latte_img).also { itemList.add(it) }
-        Product("Breakfast", arrayOf("Breakfast"),14.99, R.mipmap.breakfast_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.mipmap.pancakes_img).also { itemList.add(it) }
-        Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.mipmap.muffin_img).also { itemList.add(it) }
-        Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.mipmap.bagel_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.mipmap.pancakes_img).also { itemList.add(it) }
-        Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.mipmap.latte_img).also { itemList.add(it) }
-        Product("Breakfast", arrayOf("Breakfast"),14.99, R.mipmap.breakfast_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.mipmap.pancakes_img).also { itemList.add(it) }
+        Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
+        Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
+        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+        Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
+        Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
+        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+        Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
+        Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
+        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+        Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
+        Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
+        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
 
         FavoritesFragmentBinding.inflate(inflater, container, false).also {
             it.favoritesToolbar.inflateMenu(R.menu.shop_menu)
@@ -46,7 +47,13 @@ class FavoritesFragment:Fragment() {
                 }
             }
             it.favoritesToolbar.setNavigationOnClickListener{findNavController().popBackStack()}
-           it.FavoritesRecView.adapter = FavoritesAdapter().also { adapter -> adapter.positions = itemList }
+           it.FavoritesRecView.adapter = FavoritesAdapter().also {
+                   adapter -> adapter.positions = itemList
+           adapter.callback = object : FavoritesAdapterCallback{
+               override fun action(arg: NavDirections) {
+                   findNavController().navigate(arg)
+               }
+           }}
            it.FavoritesRecView.layoutManager = LinearLayoutManager(activity)
             return it.root }
     }
@@ -60,6 +67,7 @@ class FavoritesFragment:Fragment() {
 class FavoritesAdapter: RecyclerView.Adapter<FavoritesViewHolder>() {
 
     var positions = ArrayList<Product>()
+    var callback: FavoritesAdapterCallback? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoritesViewHolder {
         LayoutInflater.from(parent.context).also {
@@ -68,10 +76,13 @@ class FavoritesAdapter: RecyclerView.Adapter<FavoritesViewHolder>() {
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: FavoritesViewHolder, position: Int) {
-        positions[position].also {
-            holder.title.text = it.name
-            holder.price.text = "$${it.price}"
+        positions[position].also {product ->
+            holder.title.text = product.name
+            holder.price.text = "$${product.price}"
             holder.addBtn.setOnClickListener{ Log.i("later", "Add to cart")}
+            holder.title.setOnClickListener{
+                callback?.action(FavoritesFragmentDirections.goToDetailsFrag(product.name, "${product.price}", product.img))
+            }
         }
     }
 
@@ -80,7 +91,12 @@ class FavoritesAdapter: RecyclerView.Adapter<FavoritesViewHolder>() {
 
 class FavoritesViewHolder(item: View): RecyclerView.ViewHolder(item) {
 
-    var title: TextView = item.findViewById(R.id.position_title)
-    var price: TextView = item.findViewById(R.id.position_price)
-    var addBtn: ImageButton = item.findViewById(R.id.add_to_cart)
+    var title: TextView = item.findViewById(R.id.cart_position_title)
+    var price: TextView = item.findViewById(R.id.cart_position_price)
+    var addBtn: ImageButton = item.findViewById(R.id.remove_from_cart)
+}
+
+interface FavoritesAdapterCallback{
+
+    fun action(arg: NavDirections)
 }
