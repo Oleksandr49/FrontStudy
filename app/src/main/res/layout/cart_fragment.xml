@@ -21,7 +21,7 @@
         android:id="@+id/go_to_payment_btn"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/button"
+        android:background="@drawable/basic_green_button"
         android:text="@string/proceed_to_payment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

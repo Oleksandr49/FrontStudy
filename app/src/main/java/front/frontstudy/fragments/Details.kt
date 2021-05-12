@@ -1,4 +1,4 @@
-package front.frontstudy
+package front.frontstudy.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,16 +9,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
+import front.frontstudy.R
 import front.frontstudy.databinding.ItemDetailsFragmentBinding
 
-class ItemDetailsFragment: Fragment() {
+class Details: Fragment() {
 
     var viewBinding: ItemDetailsFragmentBinding? = null
-    val args: ItemDetailsFragmentArgs by navArgs()
+    val args: DetailsArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         ItemDetailsFragmentBinding.inflate(inflater, container, false).also {
-            it.detailsToolbar.inflateMenu(R.menu.details_menu)
+            it.detailsToolbar.inflateMenu(R.menu.details)
             it.detailsToolbar.title = args.ProductName
             it.detailsToolbar.setOnMenuItemClickListener { menuItem ->
                 when(menuItem.itemId){

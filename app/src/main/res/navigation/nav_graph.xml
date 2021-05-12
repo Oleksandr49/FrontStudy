@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="front.frontstudy.HomeFragment"
+        android:name="front.frontstudy.fragments.Home"
         android:label="HomeFragment"
         tools:layout="@layout/home_fragment">
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
-        android:name="front.frontstudy.SignInFragment"
+        android:name="front.frontstudy.fragments.SignIn"
         android:label="SignInFragment"
         tools:layout="@layout/sign_in_fragment">
         <action
@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="front.frontstudy.SignUpFragment"
+        android:name="front.frontstudy.fragments.SignUp"
         android:label="SignUpFragment"
         tools:layout="@layout/sign_up_fragment">
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuCategoriesFragment"
-        android:name="front.frontstudy.MenuCategoriesFragment"
+        android:name="front.frontstudy.fragments.Categories"
         android:label="MenuCategoriesFragment"
         tools:layout="@layout/menu_categories_fragment">
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="front.frontstudy.FavoritesFragment"
+        android:name="front.frontstudy.fragments.Favorites"
         android:label="FavoritesFragment"
         tools:layout="@layout/favorites_fragment">
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/userSettingsFragment"
-        android:name="front.frontstudy.UserSettingsFragment"
+        android:name="front.frontstudy.fragments.Settings"
         android:label="UserSettingsFragment"
         tools:layout="@layout/user_settings_fragment">
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/itemDetailsFragment"
-        android:name="front.frontstudy.ItemDetailsFragment"
+        android:name="front.frontstudy.fragments.Details"
         android:label="ItemDetailsFragment"
         tools:layout="@layout/item_details_fragment">
         <argument
@@ -100,7 +100,7 @@
     </fragment>
     <fragment
         android:id="@+id/allProductsMenuFragment"
-        android:name="front.frontstudy.AllProductsMenuFragment"
+        android:name="front.frontstudy.fragments.AllProducts"
         android:label="AllProductsMenuFragment"
         tools:layout="@layout/all_products_menu_fragment">
         <action
@@ -115,7 +115,7 @@
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
-        android:name="front.frontstudy.CartFragment"
+        android:name="front.frontstudy.fragments.Cart"
         android:label="CartFragment"
         tools:layout="@layout/cart_fragment">
         <action

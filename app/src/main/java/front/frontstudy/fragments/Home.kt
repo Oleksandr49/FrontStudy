@@ -1,4 +1,4 @@
-package front.frontstudy
+package front.frontstudy.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import front.frontstudy.databinding.HomeFragmentBinding
 
-class HomeFragment: Fragment() {
+class Home: Fragment() {
 
     var viewBinding: HomeFragmentBinding? = null
 
@@ -17,10 +17,10 @@ class HomeFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         HomeFragmentBinding.inflate(inflater, container, false).also {
             it.LogIn.setOnClickListener {
-                HomeFragmentDirections.goToSingIn().also { destination -> findNavController().navigate(destination) }
+                HomeDirections.goToSingIn().also { destination -> findNavController().navigate(destination) }
             }
             it.Register.setOnClickListener {
-                HomeFragmentDirections.goToSignUp().also { destination -> findNavController().navigate(destination) }
+                HomeDirections.goToSignUp().also { destination -> findNavController().navigate(destination) }
             }
             return it.root }
     }

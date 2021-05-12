@@ -17,8 +17,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_background"
-        tools:srcCompat="@drawable/home_background" />
+        app:srcCompat="@drawable/coffee_beans_img"
+        tools:srcCompat="@drawable/coffee_beans_img" />
 
     <ImageView
         android:id="@+id/drawer_logo"

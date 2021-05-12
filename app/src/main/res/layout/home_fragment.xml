@@ -16,13 +16,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home_background" />
+        app:srcCompat="@drawable/coffee_beans_img" />
 
     <Button
         android:id="@+id/LogIn"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@drawable/button"
+        android:background="@drawable/basic_green_button"
         android:text="@string/log_in"
         android:textColor="#F3EFEF"
         android:textSize="14sp"
@@ -35,7 +35,7 @@
         android:id="@+id/Register"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@drawable/button"
+        android:background="@drawable/basic_green_button"
         android:text="@string/register"
         android:textColor="#F6F4F4"
         android:textSize="14sp"

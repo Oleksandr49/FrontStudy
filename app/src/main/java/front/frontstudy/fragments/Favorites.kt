@@ -1,4 +1,4 @@
-package front.frontstudy
+package front.frontstudy.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -14,30 +14,17 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import front.frontstudy.R
+import front.frontstudy.data.Product
 import front.frontstudy.databinding.FavoritesFragmentBinding
 
-class FavoritesFragment:Fragment() {
+class Favorites:Fragment() {
 
     var viewBinding: FavoritesFragmentBinding? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val itemList = ArrayList<Product>()
-        Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
-        Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
-        Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
-        Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
-        Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
-        Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
-        Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
-        Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
-        Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
-
         FavoritesFragmentBinding.inflate(inflater, container, false).also {
-            it.favoritesToolbar.inflateMenu(R.menu.shop_menu)
-            it.favoritesToolbar.title = "Favorites"
+            it.favoritesToolbar.inflateMenu(R.menu.shop)
             it.favoritesToolbar.setOnMenuItemClickListener { menuItem ->
                 when(menuItem.itemId){
                     R.id.cart -> {
@@ -48,8 +35,8 @@ class FavoritesFragment:Fragment() {
             }
             it.favoritesToolbar.setNavigationOnClickListener{findNavController().popBackStack()}
            it.FavoritesRecView.adapter = FavoritesAdapter().also {
-                   adapter -> adapter.positions = itemList
-           adapter.callback = object : FavoritesAdapterCallback{
+                   adapter -> adapter.positions = initList()
+           adapter.callback = object : FavoritesAdapterCallback {
                override fun action(arg: NavDirections) {
                    findNavController().navigate(arg)
                }
@@ -61,6 +48,24 @@ class FavoritesFragment:Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         viewBinding = null
+    }
+
+    private fun initList(): ArrayList<Product>{
+        ArrayList<Product>().also { itemList ->
+            Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
+            Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
+            Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+            Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
+            Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
+            Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+            Product("Chocolate Muffin", arrayOf("Breakfast", "Munchies"),4.99, R.drawable.muffin_img).also { itemList.add(it) }
+            Product("Classic Bagel", arrayOf("Breakfast", "Sandwiches"),6.99, R.drawable.bagel_img).also { itemList.add(it) }
+            Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+            Product("Latte", arrayOf("Breakfast", "Coffee"),5.69, R.drawable.latte_img).also { itemList.add(it) }
+            Product("Breakfast", arrayOf("Breakfast"),14.99, R.drawable.breakfast_img).also { itemList.add(it) }
+            Product("Pancakes", arrayOf("Breakfast"),9.99, R.drawable.pancakes_img).also { itemList.add(it) }
+            return itemList
+        }
     }
 }
 
@@ -81,7 +86,7 @@ class FavoritesAdapter: RecyclerView.Adapter<FavoritesViewHolder>() {
             holder.price.text = "$${product.price}"
             holder.addBtn.setOnClickListener{ Log.i("later", "Add to cart")}
             holder.title.setOnClickListener{
-                callback?.action(FavoritesFragmentDirections.goToDetailsFrag(product.name, "${product.price}", product.img))
+                callback?.action(FavoritesDirections.goToDetailsFrag(product.name, "${product.price}", product.img))
             }
         }
     }

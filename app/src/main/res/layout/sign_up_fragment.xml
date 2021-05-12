@@ -92,7 +92,7 @@
         android:id="@+id/SignUp"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="@drawable/button"
+        android:background="@drawable/basic_green_button"
         android:text="@string/sign_up"
         android:textColor="#FFFF"
         android:textSize="14sp"
@@ -125,8 +125,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/foto_placeholder"
-        tools:srcCompat="@drawable/foto_placeholder" />
+        app:srcCompat="@drawable/foto_placeholder_img"
+        tools:srcCompat="@drawable/foto_placeholder_img" />
 
     <TextView
         android:id="@+id/Terms"
