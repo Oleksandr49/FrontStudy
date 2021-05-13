@@ -60,7 +60,7 @@ class CartAdapter: RecyclerView.Adapter<CartViewHolder>() {
         }
         holder.button.setOnClickListener {
             cartItems.removeAt(holder.adapterPosition)
-            this.notifyItemRemoved(position)
+            this.notifyItemRemoved(holder.adapterPosition)
         }
     }
 
